@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - Modern Form</title>
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      position: static;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+      color: #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      opacity: 0;
+      animation: bodyFade 1s ease forwards;
+    }
+
+    @keyframes bodyFade {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .container {
+      display: flex;
+      max-width: 1000px;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+
+      transform: scale(0.95) translateY(20px);
+      opacity: 0;
+      animation: containerFade 0.8s ease-out 0.5s forwards;
+    }
+
+    @keyframes containerFade {
+      to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .form-section {
+      flex: 1;
+      padding: 50px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .form-section h3 {
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .form-section h1 {
+      font-size: 24px;
+      color: #ccc;
+      margin-bottom: 20px;
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #aaa;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid #444;
+      padding: 10px 5px;
+      color: #fff;
+      font-size: 16px;
+      transition: border-color 0.3s;
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #0af;
+    }
+
+    .form-group .error {
+      color: #f44336;
+      font-size: 12px;
+      margin-top: 5px;
+      display: none;
+    }
+
+    button {
+      grid-column: span 2;
+      padding: 12px 20px;
+      font-size: 16px;
+      background-color: transparent;
+      border: 2px solid #0af;
+      color: #0af;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #0af;
+      color: #000;
+      transform: scale(1.05);
+    }
+
+    .success-message {
+      margin-top: 20px;
+      color: #4caf50;
+      font-weight: bold;
+      display: none;
+    }
+
+    .right-section {
+      flex: 1;
+      background: linear-gradient(135deg, #111, #222);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      color: #ccc;
+      text-align: center;
+    }
+
+    .right-section h2 {
+      color: #fff;
+      margin-bottom: 15px;
+    }
+
+    .right-section p {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    .right-section a {
+      color: #0af;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .right-section a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .right-section {
+        height: auto;
+        padding: 20px;
+      }
+
+      .form-section {
+        padding: 40px 30px;
+      }
+
+      button {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-section">
+      <h3>CONTACT US</h3>
+      <h1>
+        Tell us a bit more about yourself, so we can get the ball rolling.
+      </h1>
+      <form id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="firstName">First name*</label>
+          <input type="text" id="firstName" name="firstName" required />
+          <div class="error">First name is required.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Last name*</label>
+          <input type="text" id="lastName" name="lastName" required />
+          <div class="error">Last name is required.</div>
+        </div>
+
+        <div class="form-group" style="grid-column: span 2;">
+          <label for="email">Gmail*</label>
+          <input type="email" id="email" name="email" required />
+          <div class="error">Valid Gmail is required.</div>
+        </div>
+
+        <div class="form-group" style="grid-column: span 2;">
+          <label for="message">Message*</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+          <div class="error">Message is required (min 5 characters).</div>
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <div class="success-message" id="successMessage">Thank you! Your message has been submitted ✅</div>
+    </div>
+
+    <!-- RIGHT SECTION -->
+    <div class="right-section">
+      <h2>My Contact Info</h2>
+      <p>📧 <strong>Gmail:</strong> kharwadesiddheshwar@gmail.com</p>
+      <p>🔗 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/siddheshwar-kharwade-407729288/" target="_blank">Visit Profile</a></p>
+    </div>
+
+  </div>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      let isValid = true;
+
+      const firstName = document.getElementById('firstName');
+      const lastName = document.getElementById('lastName');
+      const email = document.getElementById('email');
+      const message = document.getElementById('message');
+
+      // First Name
+      if (firstName.value.trim() === '') {
+        firstName.nextElementSibling.style.display = 'block';
+        isValid = false;
+      } else {
+        firstName.nextElementSibling.style.display = 'none';
+      }
+
+      // Last Name
+      if (lastName.value.trim() === '') {
+        lastName.nextElementSibling.style.display = 'block';
+        isValid = false;
+      } else {
+        lastName.nextElementSibling.style.display = 'none';
+      }
+
+      // Gmail Validation
+      const gmailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+      if (!gmailPattern.test(email.value.trim())) {
+        email.nextElementSibling.style.display = 'block';
+        isValid = false;
+      } else {
+        email.nextElementSibling.style.display = 'none';
+      }
+
+      // Message
+      if (message.value.trim().length < 5) {
+        message.nextElementSibling.style.display = 'block';
+        isValid = false;
+      } else {
+        message.nextElementSibling.style.display = 'none';
+      }
+
+      // If valid
+      if (isValid) {
+        successMessage.style.display = 'block';
+        form.reset();
+
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 4000);
+      }
+    });
+  </script>
+</body>
+</html>

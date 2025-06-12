@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Me</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #333; /* Dark background */
+            color: #fff; /* White text */
+            font-family: Arial, sans-serif; /* Font type */
+        }
+
+        h1 {
+            text-align: left;
+            margin-top: 20px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px #000;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        /* Education Section */
+        #edu {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns */
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .edu-card {
+            background-color: #444;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .edu-card h4 {
+            margin: 0;
+        }
+
+        .gpa {
+            background-color: #007bff;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.9em;
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        /* Skills Section */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px;
+            max-width: 1000px;
+            margin: 20px auto 50px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            padding: 30px 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            transform: scale(1.25);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.6);
+            background-color: #222;
+        }
+
+        .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #3b82f6;
+        }
+
+        .skill-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #f0f0f0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #edu {
+                grid-template-columns: 1fr;
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Education Section -->
+    <h1>Education Details</h1>
+    <div id="edu">
+        <div class="edu-card">
+            <h4>Java Full Stack Developer</h4>
+            <p>FirstBit Solution Private Limited</p>
+            <ul>
+                <li>Trained in Java, Spring Boot, and RESTful API development.</li>
+                <li>Built responsive web applications using HTML, CSS, JavaScript.</li>
+                <li>Hands-on experience with MySQL database integration.</li>
+                <li>Developed full-stack projects using MVC architecture.</li>
+                <li>Version control using Git & GitHub.</li>
+            </ul>
+        </div>
+
+        <div class="edu-card">
+            <h4>Bachelor Of Computer Application (BCA)</h4>
+            <p>Sharda College, Parbhani</p>
+            <p>2021 - 2024 <span class="gpa">Percentage 70.00%</span></p>
+            <ul>
+                <li>Specialized in Computer Science and Software Development.</li>
+                <li>Developed mini-projects using Java, HTML, CSS, JavaScript.</li>
+                <li>Completed coursework in Data Structures, DBMS, and Web Development.</li>
+                <li>Participated in coding competitions and workshops.</li>
+                <li>Built a strong foundation in Object-Oriented Programming (OOP).</li>
+            </ul>
+        </div>
+
+        <div class="edu-card">
+            <h4>Higher Secondary Certificate (HSC) - Computer Science</h4>
+            <p>Dyanganga College, Parbhani</p>
+            <p>2018 - 2020 <span class="gpa">Percentage 55.40%</span></p>
+            <ul>
+                <li>Completed coursework in Computer Science, Mathematics, and Physics.</li>
+                <li>Gained foundational knowledge in C programming and basic algorithms.</li>
+                <li>Participated in science and technology exhibitions.</li>
+                <li>Developed problem-solving and logical reasoning skills.</li>
+            </ul>
+        </div>
+
+        <div class="edu-card">
+            <h4>Secondary School Certificate (SSC)</h4>
+            <p>Late. Raosaheb Jamkar Vidyalaya, Parbhani</p>
+            <p>2017 - 2018 <span class="gpa">Percentage 62.80%</span></p>
+            <ul>
+                <li>Completed foundational education with focus on core academic subjects.</li>
+                <li>Participated in school-level science and mathematics competitions.</li>
+                <li>Developed strong communication, teamwork, and time management skills.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Skills Section -->
+    <h1>Skillset Overview</h1>
+    <div class="grid">
+        <div class="card">
+            <div class="icon">🌐</div>
+            <div class="skill-title">HTML</div>
+        </div>
+        <div class="card">
+            <div class="icon">🎨</div>
+            <div class="skill-title">CSS</div>
+        </div>
+        <div class="card">
+            <div class="icon">✨</div>
+            <div class="skill-title">JavaScript</div>
+        </div>
+        <div class="card">
+            <div class="icon">📱</div>
+            <div class="skill-title">Bootstrap</div>
+        </div>
+        <div class="card">
+            <div class="icon">💻</div>
+            <div class="skill-title">C</div>
+        </div>
+        <div class="card">
+            <div class="icon">💻</div>
+            <div class="skill-title">C++</div>
+        </div>
+        <div class="card">
+            <div class="icon">☕</div>
+            <div class="skill-title">Java</div>
+        </div>
+        <div class="card">
+            <div class="icon">🔗</div>
+            <div class="skill-title">JDBC</div>
+        </div>
+        <div class="card">
+            <div class="icon">🌱</div>
+            <div class="skill-title">Spring</div>
+        </div>
+        <div class="card">
+            <div class="icon">🚀</div>
+            <div class="skill-title">Spring Boot</div>
+        </div>
+        <div class="card">
+            <div class="icon">🗄️</div>
+            <div class="skill-title">MySQL</div>
+        </div>
+        <div class="card">
+            <div class="icon">⚙️</div>
+            <div class="skill-title">Backend Development</div>
+        </div>
+    </div>
+
+    <script>
+        // Fade in on load
+        document.addEventListener("DOMContentLoaded", () => {
+            const cards = document.querySelectorAll(".card");
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add("visible");
+                }, index * 150);
+            });
+        });
+
+        // Fade in on scroll
+        window.addEventListener("scroll", () => {
+            const cards = document.querySelectorAll(".card");
+            const triggerBottom = window.innerHeight * 0.9;
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                if (cardTop < triggerBottom) {
+                    card.classList.add("visible");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

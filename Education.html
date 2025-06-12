@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Education</title>
+
+    <style>
+    html, body {
+    height: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(20,20,20,0.95));
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+    animation: fadeInBody 1s ease forwards;
+}
+
+
+        @keyframes fadeInBody {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            padding: 50px 20px;
+            animation: fadeInSection 1.5s ease forwards;
+        }
+
+        @keyframes fadeInSection {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .edu {
+            background-color: rgba(30, 30, 30, 0.85); /* Semi-transparent dark */
+            color: #eee;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            width: 80%;
+            max-width: 900px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid #1e90ff55;
+        }
+
+        .edu:hover {
+            transform: scale(1.03);
+            box-shadow: 0 16px 32px rgba(30, 144, 255, 0.5);
+        }
+
+        .edu h2 {
+            margin-top: 0;
+            color: #1e90ff;
+            font-size: 24px;
+            font-family: 'Times New Roman', serif;
+        }
+
+        #det {
+            font-family: 'Times New Roman', serif;
+            font-size: 36px;
+            color: #1e90ff;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        #det::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #1e90ff;
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .edu p {
+            margin: 8px 0;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .edu {
+                width: 90%;
+                padding: 25px;
+            }
+
+            #det {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .edu {
+                width: 95%;
+                padding: 20px;
+            }
+
+            .edu h2 {
+                font-size: 20px;
+            }
+
+            .edu p {
+                font-size: 14px;
+            }
+
+            #det {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section>
+        <h1 id="det">Education Details</h1>
+
+        <div class="edu">
+            <h2>Java Full Stack Developer</h2>
+            <p><strong>Class:</strong> FirstBit Solution Private Limited </p>
+            <p><strong>Year:</strong> July/2024 - Mar/2025</p>
+            <p>Focused on software engineering, full stack development.</p>
+        </div>
+
+        <div class="edu">
+            <h2>Bachelor Of Computer Application (BCA)</h2>
+            <p><strong>College:</strong> Sharda College, Parbhani</p>
+            <p><strong>Percentage:</strong> 70.00%</p>
+            <p><strong>Year:</strong> 2021 - 2024</p>
+            <p>Specialized in Computer Science with emphasis on Mathematics and Programming.</p>
+        </div>
+
+        <div class="edu">
+            <h2>Higher Secondary Certificate (HSC)</h2>
+            <p><strong>School:</strong> Dyanganga College, Parbhani</p>
+            <p><strong>Percentage:</strong> 55.40%</p>
+            <p><strong>Year:</strong> 2018 - 2020</p>
+            <p>Completed higher secondary education with focus on Mathematics and Computer Science.</p>
+        </div>
+
+        <div class="edu">
+            <h2>Secondary School Certificate (SSC)</h2>
+            <p><strong>School:</strong> Late. Raosaheb Jamkar Vidyalaya, Parbhani</p>
+            <p><strong>Percentage:</strong> 62.80%</p>
+            <p><strong>Year:</strong> 2017 - 2018</p>
+            <p>Completed secondary education with strong academic foundation.</p>
+        </div>
+    </section>
+
+</body>
+</html>

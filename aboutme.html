@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Me</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px #000;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        /* Education Section */
+        #edu {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .edu-card {
+            background-color: #444;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .edu-card h4 {
+            margin: 0;
+        }
+
+        .gpa {
+            background-color: #007bff;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.9em;
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        /* Skills Section */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px;
+            max-width: 1000px;
+            margin: 20px auto 50px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            padding: 30px 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.6);
+            background-color: #222;
+        }
+
+        .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #3b82f6;
+        }
+
+        .skill-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #f0f0f0;
+        }
+
+        /* Reveal animation */
+        .reveal {
+            opacity: 0.25;
+            transform: translateY(50px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+    .about-section {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .about-left img {
+        margin: 0 auto;
+    }
+
+    .about-right h1 {
+        margin-top: 20px;
+    }
+
+    #edu {
+        grid-template-columns: 1fr;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+
+        /* About Me Section */
+        .about-section {
+            /* margin-top: 40px; */
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            padding: 40px 20px;
+            background-color: #222;
+            align-items: center;
+            max-width: 1200px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-left img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-right h1 {
+            font-size: 2em;
+            color: #3b82f6;
+            margin-bottom: 15px;
+        }
+
+        .about-right p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #ddd;
+            margin-bottom: 10px;
+        }
+
+        /* Buttons & Social Links */
+        .button {
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        
+
+        /* Skill Cooldowns */
+        .skill-bar {
+            background: #444;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .skill-progress {
+            background: #3b82f6;
+            width: 0%;
+            height: 20px;
+            transition: width 1s ease;
+        }
+        #about{
+            margin-top: 50px;
+        }
+        .about-right h1{
+            color: #ddd;
+        }
+        html {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 12px;
+    }
+}
+.button {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 1em;
+}
+
+@media (max-width: 768px) {
+    .button {
+        display: block;
+        margin: 20px auto;
+        width: 80%;
+    }
+}
+.card {
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+    <!-- About Me Section -->
+    <div id="about" class="about-section reveal">
+        <div class="about-left">
+            <img src="Profile.jpg" alt="My Photo" />
+        </div>
+        <div class="about-right">
+            <h1>About Me</h1>
+            <p>
+                I am a passionate and enthusiastic Full Stack Developer with a strong foundation in Java, Spring Boot, and modern web technologies. 
+                I love creating dynamic, responsive web applications and constantly strive to learn new technologies. 
+                With hands-on experience in both front-end and back-end development, I aim to build impactful digital solutions.
+            </p>
+            <p>
+                Enthusiastic about problem-solving, teamwork, and continuous learning. 
+                Always eager to take on new challenges and collaborate on exciting projects!
+            </p>
+            <a href="SIddheshwar Java Full Stack.pdf" class="button">View My Resume</a>
+        </div>
+    </div>
+
+    <!-- Education Section -->
+    <h1 class="reveal">Education Details</h1>
+    <div id="edu" class="reveal">
+        <div class="edu-card">
+            <h4>Java Full Stack Developer</h4>
+            <p>FirstBit Solution Private Limited</p>
+            <ul>
+                <li>Trained in Java, Spring Boot, and RESTful API development.</li>
+                <li>Built responsive web applications using HTML, CSS, JavaScript.</li>
+                <li>Hands-on experience with MySQL database integration.</li>
+                <li>Developed full-stack projects using MVC architecture.</li>
+                <li>Version control using Git & GitHub.</li>
+            </ul>
+        </div>
+        <div class="edu-card">
+            <h4>Bachelor Of Computer Application (BCA)</h4>
+            <p>Sharda College, Parbhani</p>
+            <p>2021 - 2024 <span class="gpa">Percentage 70.00%</span></p>
+            <ul>
+                <li>Specialized in Computer Science and Software Development.</li>
+                <li>Developed mini-projects using Java, HTML, CSS, JavaScript.</li>
+                <li>Completed coursework in Data Structures, DBMS, and Web Development.</li>
+                <li>Participated in coding competitions and workshops.</li>
+                <li>Built a strong foundation in Object-Oriented Programming (OOP).</li>
+            </ul>
+        </div>
+        <div class="edu-card">
+            <h4>Higher Secondary Certificate (HSC) - Computer Science</h4>
+            <p>Dyanganga College, Parbhani</p>
+            <p>2018 - 2020 <span class="gpa">Percentage 55.40%</span></p>
+            <ul>
+                <li>Completed coursework in Computer Science, Mathematics, and Physics.</li>
+                <li>Gained foundational knowledge in C programming and basic algorithms.</li>
+                <li>Participated in science and technology exhibitions.</li>
+                <li>Developed problem-solving and logical reasoning skills.</li>
+            </ul>
+        </div>
+        <div class="edu-card">
+            <h4>Secondary School Certificate (SSC)</h4>
+            <p>Late. Raosaheb Jamkar Vidyalaya, Parbhani</p>
+            <p>2017 - 2018 <span class="gpa">Percentage 62.80%</span></p>
+            <ul>
+                <li>Completed foundational education with focus on core academic subjects.</li>
+                <li>Participated in school-level science and mathematics competitions.</li>
+                <li>Developed strong communication, teamwork, and time management skills.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Skills Section -->
+    <h1 class="reveal">Skillset Overview</h1>
+    <div class="grid reveal">
+        <div class="card"><div class="icon">🌐</div><div class="skill-title">HTML</div>
+            <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+        </div>
+        <div class="card"><div class="icon">🎨</div><div class="skill-title">CSS</div>
+            <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+        </div>
+        <div class="card"><div class="icon">✨</div><div class="skill-title">JavaScript</div>
+            <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+        </div>
+        <div class="card"><div class="icon">📱</div><div class="skill-title">Bootstrap</div>
+            <div class="skill-bar"><div class="skill-progress" style="width: 75%;"></div></div>
+        </div>
+        <div class="card"><div class="icon">💻</div><div class="skill-title">C</div>
+            <div class="skill-bar"><div class="skill-progress" style="width: 70%;"></div></div>
+        </div>
+        <div class="card"><div class="icon">💻</div><div class="skill-title">C++</div>
+            <div class="skill-bar"><div class="skill-progress" style="width: 65%;"></div></div>
+        </div>
+        <div class="card"><div class="icon">☕</div><div class="skill-title">Java</div>
+            <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+        </div>
+        <div class="card"><div class="icon">🔗</div><div class="skill-title">JDBC</div>
+            <div class="skill-bar"><div class="skill-progress" style="width: 70%;"></div></div>
+        </div>
+        <div class="card"><div class="icon">🌱</div><div class="skill-title">Spring</div>
+            <div class="skill-bar"><div class="skill-progress" style="width: 75%;"></div></div>
+        </div>
+        <div class="card"><div class="icon">🚀</div><div class="skill-title">Spring Boot</div>
+            <div class="skill-bar"><div class="skill-progress" style="width: 70%;"></div></div>
+        </div>
+        <div class="card"><div class="icon">🗄️</div><div class="skill-title">MySQL</div>
+            <div class="skill-bar"><div class="skill-progress" style="width: 75%;"></div></div>
+        </div>
+        <div class="card"><div class="icon">⚙️</div><div class="skill-title">Backend Development</div>
+            <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+        </div>
+    </div>
+
+
+    <!-- Script -->
+    <script>
+        function handleScroll() {
+            const triggerBottom = window.innerHeight * 0.9;
+
+            // Handle .card elements
+            const cards = document.querySelectorAll(".card");
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                if (cardTop < triggerBottom) {
+                    card.classList.add("visible");
+                }
+            });
+
+            // Handle .reveal elements
+            const reveals = document.querySelectorAll(".reveal");
+            reveals.forEach(reveal => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                const revealPoint = 150;
+                if (elementTop < window.innerHeight - revealPoint) {
+                    reveal.classList.add("active");
+                } else {
+                    reveal.classList.remove("active");
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('DOMContentLoaded', () => {
+            // Fade in cards on load
+            const cards = document.querySelectorAll(".card");
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add("visible");
+                }, index * 150);
+            });
+
+            // Initial call
+            handleScroll();
+        });
+    </script>
+
+</body>
+</html>
