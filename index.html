@@ -473,11 +473,15 @@ footer {
 </head>
 <body>
     <nav>
+    <button id="menu-toggle">&#9776;</button> <!-- Hamburger menu -->
+    <div class="nav-links">
         <a href="#"><span>Home</span></a>
         <a href="#projects"><span>Projects</span></a>
         <a href="Aboutme.html"><span>About Me</span></a>
-        <a href="Contact.html"><span> Contact Us </span></a>
-    </nav>
+        <a href="Contact.html"><span>Contact Us</span></a>
+    </div>
+</nav>
+
     
     <section id="greeting-section" class="reveal" style="
     text-align: center;
@@ -618,6 +622,10 @@ footer {
     }
 
     window.addEventListener('scroll', revealElements);
+
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+    document.querySelector('.nav-links').classList.toggle('active');
+});
 
     // Call it once initially in case some elements are already in view
     revealElements();
