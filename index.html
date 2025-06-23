@@ -1,647 +1,541 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siddheshwar Career Page</title>
-    <style>
-        body {
-            position: static;
-            width: 100%;
-            max-width: 100%; 
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #000000;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            overflow-x: hidden;
-        }
-
-       nav {
-    display: flex;
-    justify-content: flex-start;
-    padding: 15px 30px;
-    background-color: #000;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-        nav a {
-            text-decoration: none;
-            color: rgb(255, 241, 241);
-            font-weight: bold;
-            position: relative;
-            
-        }
-        .nav-links {
-    display: flex;
-    gap: 40px;
-    max-width: 60%;
-    flex-wrap: wrap;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: #ffcc00;
-}
-
-        /* Optional underline on hover */
-        nav a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -2px;
-            width: 100%;
-            height: 2px;
-            background-color: rgb(255, 241, 241);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        nav a:hover::after {
-            transform: scaleX(1);
-        }
-
-        section {
-            margin-top: 10rem;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin: 0;
-            padding: 0;
-            width: 100%; 
-        }
-
-        #Rdiv, #Ldiv {
-            width: 100%;
-            color: #fff;
-          max-width: 400px;
-            
-        }
-
-        #Ldiv {
-            position: relative;
-            width: 350px;
-            height: 350px;
-        }
-
-        #Ldiv img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid white;
-            z-index: 2;
-            position: relative;
-        }
-
-        /* Waves initially hidden */
-        #Ldiv::before,
-        #Ldiv::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            transform: translate(-50%, -50%) scale(1);
-            opacity: 0;
-            pointer-events: none;
-            z-index: 1;
-            background: radial-gradient(circle, rgba(255, 0, 0, 0.4), transparent);
-            transition: opacity 0.3s ease;
-        }
-
-        /* Second wave with different color and delay */
-        #Ldiv::after {
-            background: radial-gradient(circle, rgba(0, 255, 255, 0.4), transparent);
-            animation-delay: 1s;
-        }
-
-        /* Start animation and show waves on hover */
-        #Ldiv:hover::before,
-        #Ldiv:hover::after {
-            opacity: 0.8;
-            animation: wave 2s infinite ease-out;
-        }
-
-        /* Wave animation */
-        @keyframes wave {
-            0% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 0.8;
-            }
-            100% {
-                transform: translate(-50%, -50%) scale(2.2);
-                opacity: 0;
-            }
-        }
-
-        #Rdiv {
-            color: white;
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        #Rdiv h1 {
-            font-size: 40px;
-            margin: 0;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        #Rdiv h2 {
-            font-size: 40px;
-            margin: 10px 0;
-            background: linear-gradient(90deg, #ff4e50, #713260, #00c9ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        #Rdiv h3 {
-            font-size: 20px;
-            margin: 10px 0;
-            color: #ccc;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        #Rdiv p{
-            font-family: 'Times New Roman', Times, serif;
-        } 
-        .social-icons {
-            margin-top: 20px;
-            display: flex;
-            gap: 20px;
-        }
-
-        .social-icons img {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .social-icons img:hover {
-            transform: scale(1.1);
-        }
-
-    #Seconddiv {
-       display: flex;
-       justify-content: center; /* horizontal centering */
-       align-items: center;     /* vertical centering */
-       height: 50px; /* Example height, adjust as needed */
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siddheshwar Career Page</title>
+  <style>
+    /* Global Reset and Fixes */
+    * {
+      box-sizing: border-box;
     }
 
-    #Seconddiv h1 {
-       color: #ccc;
-       margin: 0; /* Optional: remove default margin */
-       font-family: 'Times New Roman', Times, serif;
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      background-color: #000000;
+      font-family: Arial, sans-serif;
     }
 
-  #profile-section {
-  padding: 40px;
-  background-color: #000; /* black background */
-  color: #fff;
-  font-family: Arial, sans-serif;
-}
-
-.profile-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.profile-image img {
-  margin-top: -25px;
-  width: 80%;
-  height: 400px;
-  max-width: 500px;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-.profile-content {
-  flex: 1;
-}
-
-.profile-content p {
-  line-height: 1.6;
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-.profile-content blockquote {
-  border-left: 4px solid #1e90ff;
-  padding-left: 15px;
-  color: #ccc;
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-.profile-cards {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.profile-cards .card {
-  background-color: #1a1a1a;
-  border-radius: 8px;
-  padding: 20px;
-  flex: 1 1 200px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-}
-
-.profile-cards .card h3 {
-  color: #1e90ff;
-  margin-bottom: 10px;
-}
-
-.profile-cards .card p {
-  color: #ccc;
-  font-size: 15px;
-  line-height: 1.5;
-}
-
-/* Responsive */
-@media (max-width: 992px) {
     nav {
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-
-    section {
-        flex-direction: column-reverse;
-        text-align: center;
-    }
-
-    #Rdiv, #Ldiv {
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    #Ldiv {
-        margin-bottom: 20px;
-    }
-
-    #Ldiv img {
-        width: 250px;
-        height: 250px;
-    }
-
-    .social-icons {
-        justify-content: center;
-    }
-
-    .profile-container {
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .profile-image img {
-        width: 100%;
-        height: auto;
-        max-height: 300px;
-    }
-
-    .profile-cards {
-        justify-content: center;
-    }
-
-    .footer-section {
-        min-width: 100%;
-    }
-
-    .footer-bottom {
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 480px) {
-    #Rdiv h1,
-    #Rdiv h2,
-    #Rdiv h3,
-    #Seconddiv h1,
-    .profile-content p,
-    .profile-content blockquote {
-        font-size: 90%;
+      display: flex;
+      justify-content: flex-start;
+      padding: 15px 30px;
+      background-color: #000;
+      font-family: 'Times New Roman', Times, serif;
+      flex-wrap: wrap;
     }
 
     nav a {
-        font-size: 16px;
-    }
-
-    .profile-cards .card {
-        flex: 1 1 100%;
-    }
-
-    .social-icons img {
-        width: 30px;
-        height: 30px;
-    }
-
-    .footer-section h3 {
-        font-size: 16px;
-    }
-
-    .footer-section a {
-        font-size: 14px;
-    }
-}
-section {
-    margin: 0;
-    padding: 0;
-}
-#profile-section {
-    padding: 40px 0;
-    margin-bottom: 10px;  /* small gap */
-}
-#firstsec{
-    margin-top: 100px;
-}
-.reveal {
-    opacity: 0.25;
-    transform: translateY(50px);
-    transition: opacity 0.50s ease, transform 0.50s ease;
-}
-
-/* When visible */
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-footer {
-    background: linear-gradient(to right, #0f0f0f, #1a1a1a, #0f0f0f);
-    color: #ccc;
-    padding: 30px 20px;
-    font-family: 'Times New Roman', Times, serif;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    gap: 20px;
-    border-top: 1px solid #333;
-}
-
-.footer-section {
-    flex: 1 1 200px;
-    min-width: 220px;
-    text-align: center;
-}
-
-.footer-section h3 {
-    color: #1e90ff;
-    margin-bottom: 10px;
-    font-size: 18px;
-}
-
-.footer-section a {
-    color: #ccc;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: color 0.3s ease, transform 0.3s ease;
-    font-size: 16px;
-}
-
-.footer-section a:hover {
-    color: #66ccff;
-    transform: translateY(-2px);
-}
-
-.footer-section img {
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-
-.footer-section img:hover {
-    transform: scale(1.1);
-}
-
-.footer-bottom {
-    width: 100%;
-    text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
-    color: #555;
-    border-top: 1px solid #222;
-    padding-top: 10px;
-}
-/* Toggle button for small screens */
-#menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 28px;
-    color: white;
-    cursor: pointer;
-    margin-left: auto;
-}
-
-/* Small screen styles */
-@media (max-width: 768px) {
-    nav {
-        justify-content: center;
+      text-decoration: none;
+      color: rgb(255, 241, 241);
+      font-weight: bold;
+      position: relative;
     }
 
     .nav-links {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      max-width: 100%;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffcc00;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 2px;
+      background-color: rgb(255, 241, 241);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+    #menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    section {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    #Rdiv, #Ldiv {
+      width: 100%;
+      color: #fff;
+      max-width: 400px;
+    }
+
+    #Ldiv {
+      position: relative;
+      width: 350px;
+      height: 350px;
+    }
+
+    #Ldiv img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid white;
+      z-index: 2;
+      position: relative;
+    }
+
+    #Ldiv::before, #Ldiv::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1;
+      background: radial-gradient(circle, rgba(255, 0, 0, 0.4), transparent);
+      transition: opacity 0.3s ease;
+    }
+
+    #Ldiv::after {
+      background: radial-gradient(circle, rgba(0, 255, 255, 0.4), transparent);
+      animation-delay: 1s;
+    }
+
+    #Ldiv:hover::before,
+    #Ldiv:hover::after {
+      opacity: 0.8;
+      animation: wave 2s infinite ease-out;
+    }
+
+    @keyframes wave {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(2.2);
+        opacity: 0;
+      }
+    }
+
+    #Rdiv {
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    #Rdiv h1 {
+      font-size: 40px;
+      margin: 0;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    #Rdiv h2 {
+      font-size: 40px;
+      margin: 10px 0;
+      background: linear-gradient(90deg, #ff4e50, #713260, #00c9ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    #Rdiv h3 {
+      font-size: 20px;
+      margin: 10px 0;
+      color: #ccc;
+    }
+
+    #Rdiv p {
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .social-icons img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.1);
+    }
+
+    #Seconddiv {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+    }
+
+    #Seconddiv h1 {
+      color: #ccc;
+      margin: 0;
+    }
+
+    #profile-section {
+      padding: 40px;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .profile-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .profile-image img {
+      margin-top: -25px;
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .profile-content {
+      flex: 1;
+    }
+
+    .profile-content p {
+      line-height: 1.6;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .profile-content blockquote {
+      border-left: 4px solid #1e90ff;
+      padding-left: 15px;
+      color: #ccc;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .profile-cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .profile-cards .card {
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      padding: 20px;
+      flex: 1 1 200px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .profile-cards .card h3 {
+      color: #1e90ff;
+      margin-bottom: 10px;
+    }
+
+    .profile-cards .card p {
+      color: #ccc;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .reveal {
+      opacity: 0.25;
+      transform: translateY(50px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      background: linear-gradient(to right, #0f0f0f, #1a1a1a, #0f0f0f);
+      color: #ccc;
+      padding: 30px 20px;
+      font-family: 'Times New Roman', Times, serif;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      gap: 20px;
+      border-top: 1px solid #333;
+    }
+
+    .footer-section {
+      flex: 1 1 200px;
+      min-width: 220px;
+      text-align: center;
+    }
+
+    .footer-section h3 {
+      color: #1e90ff;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .footer-section a {
+      color: #ccc;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s ease, transform 0.3s ease;
+      font-size: 16px;
+    }
+
+    .footer-section a:hover {
+      color: #66ccff;
+      transform: translateY(-2px);
+    }
+
+    .footer-section img {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-section img:hover {
+      transform: scale(1.1);
+    }
+
+    .footer-bottom {
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #555;
+      border-top: 1px solid #222;
+      padding-top: 10px;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+
+      section {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      #Rdiv, #Ldiv {
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      #Ldiv img {
+        width: 250px;
+        height: 250px;
+      }
+
+      .social-icons {
+        justify-content: center;
+      }
+
+      .profile-container {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .profile-image img {
+        width: 100%;
+        height: auto;
+      }
+
+      .profile-cards {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        justify-content: center;
+      }
+
+      .nav-links {
         flex-direction: row;
         align-items: center;
         gap: 20px;
         max-width: 100%;
+      }
     }
-}
-@media (max-width: 600px) {
-  .footer-links {
-    gap: 20px;
-  }
 
-  .footer-links a {
-    font-size: 16px;
-  }
-}
+    @media (max-width: 480px) {
+      nav a, #Rdiv h1, #Rdiv h2, #Rdiv h3, #Seconddiv h1 {
+        font-size: 90%;
+      }
 
-
-
-
-</style>
+      .social-icons img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <nav>
-    <button id="menu-toggle">&#9776;</button> <!-- Hamburger menu -->
-    <div class="nav-links">
-        <a href="#"><span>Home</span></a>
-        <a href="#projects"><span>Projects</span></a>
-        <a href="aboutme.html"><span>About Me</span></a>
-        <a href="Contact.html"><span>Contact Us</span></a>
-    </div>
-</nav>
 
-    
-    <section id="greeting-section" class="reveal" style="
-    text-align: center;
-    padding: 80px 20px 20px 20px;
-    color: white;
-    background: linear-gradient(90deg, #0f0f0f, #1a1a1a, #0f0f0f);
-    font-family: 'Times New Roman', Times, serif;
-">
+  <nav>
+    <button id="menu-toggle">&#9776;</button>
+    <div class="nav-links">
+      <a href="#"><span>Home</span></a>
+      <a href="#projects"><span>Projects</span></a>
+      <a href="aboutme.html"><span>About Me</span></a>
+      <a href="Contact.html"><span>Contact Us</span></a>
+    </div>
+  </nav>
+
+  <section id="greeting-section" class="reveal" style="text-align: center; padding: 80px 20px 20px 20px; color: white; background: linear-gradient(90deg, #0f0f0f, #1a1a1a, #0f0f0f);">
     <h1 style="font-size: 50px; margin-bottom: 20px;">👋 Welcome to My Career Page!</h1>
     <p style="font-size: 20px; max-width: 800px; margin: 0 auto;">
-        I am Siddheshwar Kharwade — a passionate Full Stack Java Developer on a journey to create impactful solutions.
-        Explore my skills, projects, and experience below!
+      I am Siddheshwar Kharwade — a passionate Full Stack Java Developer on a journey to create impactful solutions.
+      Explore my skills, projects, and experience below!
     </p>
-</section>
+  </section>
 
-
-
-    <section id="firstsec"  class="reveal">
-        <div id="Rdiv">
-            <h1>Hi, I'M</h1>
-            <h2>Siddheshwar Kharwade.</h2>
-            <h3>Full Stack Java Developer.</h3>
-            <p>
-                I’m Siddheshwar Kharwade, an enthusiastic and motivated Full Stack Java Developer ready to step into the professional world with strong foundational skills and a hunger to learn. <br>
-                I’ve recently completed my academic journey with hands-on experience in building projects using: <br>
-                ✅ Java, Spring Boot, and JDBC <br>
-                ✅ Frontend: HTML, CSS, JavaScript <br>
-                ✅ Database: MySQL <br>
-                ✅ Tools: Eclipse, VS Code, Dev Cpp <br>
-            </p>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/siddheshwar-kharwade-407729288?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app " target="_blank">
-                    <img src="Linkedin.png" alt="LinkedIn" />
-                </a>
-                <a href="mailto:kharwadesiddheshwar@gmail.com">
-                    <img src="gmail.webp" alt="Gmail" />
-                </a>
-            </div>
-        </div>
-        <div id="Ldiv">
-            <img src="WhatsApp Image 2025-06-15 at 17.13.15_34a4f546.jpg" alt="Profile Image">
-        </div>
-    </section>
-    <Div id="Seconddiv"  class="reveal">
-           <h1>Career Information</h1>
-    </Div>
-
-
-    <!-- Next Section can start from here -->
-
-    <section id="profile-section"  class="reveal">
-  <div class="profile-container">
-
-    <!-- Left side: Image -->
-    <div class="profile-image">
-      <img src="career-theme-businessman-city-night-600nw-2286943395.webp" alt="Profile Image">
-    </div>
-
-    <!-- Right side: Text content -->
-    <div class="profile-content">
-
-      <!-- Main paragraph -->
+  <section id="firstsec" class="reveal" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
+    <div id="Rdiv">
+      <h1>Hi, I'M</h1>
+      <h2>Siddheshwar Kharwade.</h2>
+      <h3>Full Stack Java Developer.</h3>
       <p>
-        Aspiring Java Full Stack Developer with a strong foundation in both front-end and back-end technologies.
-        Proficient in developing responsive web applications using HTML, CSS, JavaScript, React, and Angular, coupled with expertise in server-side programming with Java, Spring Boot, and RESTful APIs.
-        Skilled in database design and management using MySQL and MongoDB. Adept at understanding business requirements and translating them into scalable, maintainable solutions.
-        Passionate about writing clean, efficient code and continuously learning new technologies and frameworks. 
-        Committed to contributing to collaborative development environments and delivering high-quality software solutions that enhance user experience and drive business outcomes."
+        I’m Siddheshwar Kharwade, an enthusiastic and motivated Full Stack Java Developer ready to step into the professional world with strong foundational skills and a hunger to learn.
+        <br>✅ Java, Spring Boot, and JDBC
+        <br>✅ Frontend: HTML, CSS, JavaScript
+        <br>✅ Database: MySQL
+        <br>✅ Tools: Eclipse, VS Code, Dev Cpp
       </p>
-
-      <!-- Quote -->
-      <blockquote>
-        <em>"Building innovative, scalable, and user-centric digital solutions that empower businesses and enhance everyday experiences."</em>
-      </blockquote>
-
-      <!-- Vision & Mission cards -->
-      <div class="profile-cards">
-        <div class="card">
-          <h3>Vision</h3>
-          <p>Creating inclusive workplaces where talent thrives and innovation flourishes.</p>
-        </div>
-        <div class="card">
-          <h3>Mission</h3>
-          <p>"Bridging imagination with practicality to craft meaningful and sustainable built environments."</p>
-        </div>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/siddheshwar-kharwade-407729288" target="_blank">
+          <img src="Linkedin.png" alt="LinkedIn" />
+        </a>
+        <a href="mailto:kharwadesiddheshwar@gmail.com">
+          <img src="gmail.webp" alt="Gmail" />
+        </a>
       </div>
-
     </div>
+    <div id="Ldiv">
+      <img src="WhatsApp Image 2025-06-15 at 17.13.15_34a4f546.jpg" alt="Profile Image" />
+    </div>
+  </section>
 
+  <div id="Seconddiv" class="reveal">
+    <h1>Career Information</h1>
   </div>
 
-</section>
-    
-<footer class="reveal">
-    <div class="footer-section">
-        <h3>Contact</h3>
-        <a href="mailto:kharwadesiddheshwar@gmail.com">
-            <img src="gmail.webp" alt="Gmail Icon" />
-            kharwadesiddheshwar@gmail.com
-        </a>
+  <section id="profile-section" class="reveal">
+    <div class="profile-container">
+      <div class="profile-image">
+        <img src="career-theme-businessman-city-night-600nw-2286943395.webp" alt="Career Image" />
+      </div>
+      <div class="profile-content">
+        <p>
+          Aspiring Java Full Stack Developer with a strong foundation in both front-end and back-end technologies...
+        </p>
+        <blockquote>
+          <em>"Building innovative, scalable, and user-centric digital solutions that empower businesses and enhance everyday experiences."</em>
+        </blockquote>
+        <div class="profile-cards">
+          <div class="card">
+            <h3>Vision</h3>
+            <p>Creating inclusive workplaces where talent thrives and innovation flourishes.</p>
+          </div>
+          <div class="card">
+            <h3>Mission</h3>
+            <p>"Bridging imagination with practicality to craft meaningful and sustainable built environments."</p>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
+  <footer class="reveal">
     <div class="footer-section">
-        <h3>LinkedIn</h3>
-        <a href="https://www.linkedin.com/in/siddheshwar-kharwade-407729288" target="_blank">
-            <img src="Linkedin.png" alt="LinkedIn Icon" />
-            LinkedIn Profile
-        </a>
+      <h3>Contact</h3>
+      <a href="mailto:kharwadesiddheshwar@gmail.com">
+        <img src="gmail.webp" alt="Gmail Icon" />
+        kharwadesiddheshwar@gmail.com
+      </a>
     </div>
-
     <div class="footer-section">
-        <h3>Location</h3>
-        <p>📍 Pune, Maharashtra</p>
+      <h3>LinkedIn</h3>
+      <a href="https://www.linkedin.com/in/siddheshwar-kharwade-407729288" target="_blank">
+        <img src="Linkedin.png" alt="LinkedIn Icon" />
+        LinkedIn Profile
+      </a>
     </div>
-
+    <div class="footer-section">
+      <h3>Location</h3>
+      <p>📍 Pune, Maharashtra</p>
+    </div>
     <div class="footer-bottom">
-        &copy; 2025 Siddheshwar Kharwade. All rights reserved.
+      &copy; 2025 Siddheshwar Kharwade. All rights reserved.
     </div>
-</footer>
+  </footer>
 
-
-
-
-<script>
+  <script>
     function revealElements() {
-        const reveals = document.querySelectorAll('.reveal');
-        for (let i = 0; i < reveals.length; i++) {
-            const windowHeight = window.innerHeight;
-            const elementTop = reveals[i].getBoundingClientRect().top;
-            const revealPoint = 150;
+      const reveals = document.querySelectorAll('.reveal');
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        const revealPoint = 150;
 
-            if (elementTop < windowHeight - revealPoint) {
-                reveals[i].classList.add('active');
-            } else {
-                reveals[i].classList.remove('active');
-            }
+        if (elementTop < windowHeight - revealPoint) {
+          reveals[i].classList.add('active');
+        } else {
+          reveals[i].classList.remove('active');
         }
+      }
     }
 
     window.addEventListener('scroll', revealElements);
 
     document.getElementById('menu-toggle').addEventListener('click', function () {
-    document.querySelector('.nav-links').classList.toggle('active');
-});
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
 
-    // Call it once initially in case some elements are already in view
-    revealElements();
-</script>
+    revealElements(); // Initial call
+  </script>
 
 </body>
 </html>
